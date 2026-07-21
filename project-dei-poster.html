@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DEI Poster — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Personal Project</div>
+      <h1>DEI Poster</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#illustration" class="tag" style="text-decoration: none;">illustration</a>
+        <a href="website Amanda ross plain.html#print" class="tag" style="text-decoration: none;">print</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="graphic design thumbnail images/MC-Poster-thumb.png" alt="DEI Poster">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>

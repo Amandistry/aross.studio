@@ -1,0 +1,1596 @@
+<!-- ============================================================ -->
+<!-- FILE: website Amanda ross plain.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio Layout</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+
+    /* NAV */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* HERO */
+
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      line-height: 1;
+      max-width: 1000px;
+      font-weight: 200;
+      margin-bottom: 32px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 80px;
+    }
+
+    /* FILTER TAG BAR */
+
+    .filter-bar {
+      margin-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 16px;
+      border: 1px solid #999;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      color: #333;
+      transition: 0.2s ease;
+    }
+
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+    }
+
+    .mixitup-control-active {
+      background: #3b82f6;
+      color: white;
+      border-color: #3b82f6;
+    }
+
+    /* PROJECT GRID */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 32px;
+    }
+
+    .project-card {
+      width: 100%;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #cfcfcf;
+      border: 2px solid #3b82f6;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.03);
+    }
+
+    .project-client {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    /* MixItUp animation */
+
+    .mix {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <nav>
+      <div class="logo">Amanda Ross</div>
+
+      <div class="nav-links">
+        <a href="#">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+
+    <div class="divider"></div>
+
+    <section class="hero">
+      <h1>
+        Hi, I am Amanda - Multimedia Designer.
+      </h1>
+
+      <p>
+        You can browse my work by tag, like design, photography.
+      </p>
+    </section>
+
+    <div class="filter-bar">
+      <button class="tag mixitup-control-active" data-filter="all">All</button>
+      <button class="tag" data-filter=".design">Design</button>
+      <button class="tag" data-filter=".photography">Photography</button>
+      <button class="tag" data-filter=".digital">Digital</button>
+      <button class="tag" data-filter=".print">Print</button>
+      <button class="tag" data-filter=".branding">Branding</button>
+      <button class="tag" data-filter=".illustration">Illustration</button>
+      <button class="tag" data-filter=".web-design">Web Design</button>
+      <button class="tag" data-filter=".non-profit">Non-Profit</button>
+    </div>
+
+    <section class="projects container" id="portfolio-grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card mix design digital print branding">
+
+        <a href="project-doll-digest.html">
+
+          <div class="project-image">
+            <img src="images/doll-digest-thumbnail.png" alt="Doll Digest Magazine">
+          </div>
+
+          <div class="project-client">Personal Project</div>
+
+          <div class="project-title">Doll Digest Magazine</div>
+
+        </a>
+
+        <div class="project-meta">
+          design, print, branding
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card mix branding design digital">
+
+        <a href="project-lila.html">
+
+          <div class="project-image">
+            <img src="graphic design thumbnail images/Lila-thumb.png" alt="Lila Restaurant">
+          </div>
+
+          <div class="project-client">Personal Project</div>
+
+          <div class="project-title">Lila Restaurant</div>
+
+        </a>
+
+        <div class="project-meta">
+          branding, design, digital
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+
+      <div class="project-card mix design digital non-profit">
+
+        <a href="project-asa.html">
+
+          <div class="project-image">
+            <img src="graphic design thumbnail images/ASA-summer-25-thumb.png"
+              alt="ASA Summer 25 Membership Drive">
+          </div>
+
+          <div class="project-client">
+            American Sociological Association (ASA)
+          </div>
+
+          <div class="project-title">
+            ASA Summer 25 Membership Drive
+          </div>
+
+        </a>
+
+        <div class="project-meta">
+          design, digital, non-profit
+        </div>
+
+      </div>
+
+      <!-- PROJECT 4 -->
+
+      <div class="project-card mix design print">
+
+        <a href="project-tropical.html">
+
+          <div class="project-image">
+            <img src="graphic design thumbnail images/asa-lapel-thumb.png"
+              alt="30 Plus Member Lapel Pin">
+          </div>
+
+          <div class="project-client">
+            The American Sociological Association (ASA)
+          </div>
+
+          <div class="project-title">
+            30 Plus Member Lapel Pin
+          </div>
+
+        </a>
+
+        <div class="project-meta">
+          design, print
+        </div>
+
+      </div>
+
+      <!-- PROJECT 5 -->
+
+      <div class="project-card mix branding design digital print web-design photography">
+
+        <a href="project-amanda-splash.html">
+
+          <div class="project-image">
+            <img src="graphic design thumbnail images/Amanda-Splash-thumb.png"
+              alt="Amanda Splash Photography">
+          </div>
+
+          <div class="project-client">Amanda Ross</div>
+
+          <div class="project-title">
+            Amanda Splash Photography
+          </div>
+
+        </a>
+
+        <div class="project-meta">
+          branding, design, digital, print, web, photography
+        </div>
+
+      </div>
+
+      <!-- PROJECT 6 -->
+
+      <div class="project-card mix design illustration print">
+
+        <a href="project-dei-poster.html">
+
+          <div class="project-image">
+            <img src="graphic design thumbnail images/MC-Poster-thumb.png"
+              alt="DEI Poster">
+          </div>
+
+          <div class="project-client">Personal Project</div>
+
+          <div class="project-title">DEI Poster</div>
+
+        </a>
+
+        <div class="project-meta">
+          design, illustration, print
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
+
+  <script>
+
+    var mixer = mixitup('.container', {
+
+      load: {
+        filter: window.location.hash
+          ? '.' + window.location.hash.replace('#', '')
+          : 'all'
+      },
+
+      selectors: {
+        target: '.mix'
+      },
+
+      animation: {
+        duration: 300,
+        nudge: true,
+        reverseOut: true,
+        effects: 'fade scale(0.95)'
+      }
+
+    });
+
+    window.onhashchange = function () {
+
+      var selector = window.location.hash
+        ? '.' + window.location.hash.replace('#', '')
+        : 'all';
+
+      mixer.filter(selector);
+
+    };
+
+  </script>
+
+</body>
+
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-doll-digest.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doll Digest Magazine — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Personal Project</div>
+      <h1>Doll Digest Magazine</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#print" class="tag" style="text-decoration: none;">print</a>
+        <a href="website Amanda ross plain.html#branding" class="tag" style="text-decoration: none;">branding</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="images/doll-digest-thumbnail.png" alt="Doll Digest Magazine">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-lila.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lila Restaurant — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Personal Project</div>
+      <h1>Lila Restaurant</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#branding" class="tag" style="text-decoration: none;">branding</a>
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#digital" class="tag" style="text-decoration: none;">digital</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="../website images for indesign/graphic design thumbnail images/Lila-thumb.png" alt="Lila Restaurant">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-asa.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASA Summer 25 Membership Drive — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">American Sociological Association (ASA)</div>
+      <h1>ASA Summer 25 Membership Drive</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#digital" class="tag" style="text-decoration: none;">digital</a>
+        <a href="website Amanda ross plain.html#non-profit" class="tag" style="text-decoration: none;">non-profit</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="../website images for indesign/graphic design thumbnail images/ASA-summer-25-thumb.png" alt="ASA Summer 25 Membership Drive">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-tropical.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Title of Project — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Who is your client?</div>
+      <h1>Title of Project</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#photography" class="tag" style="text-decoration: none;">photography</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="../source code/images/trop.png" alt="Tropical project">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-amanda-splash.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amanda Splash Photography — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Amanda Ross</div>
+      <h1>Amanda Splash Photography</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#branding" class="tag" style="text-decoration: none;">branding</a>
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#digital" class="tag" style="text-decoration: none;">digital</a>
+        <a href="website Amanda ross plain.html#print" class="tag" style="text-decoration: none;">print</a>
+        <a href="website Amanda ross plain.html#web-design" class="tag" style="text-decoration: none;">web</a>
+        <a href="website Amanda ross plain.html#photography" class="tag" style="text-decoration: none;">photography</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="../website images for indesign/graphic design thumbnail images/Amanda-Splash-thumb.png" alt="Amanda Splash Photography">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>
+
+<!-- ============================================================ -->
+<!-- FILE: project-dei-poster.html -->
+<!-- ============================================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DEI Poster — Amanda Ross</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .page {
+      width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-image-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="website Amanda ross plain.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="website Amanda ross plain.html">Work</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="website Amanda ross plain.html" class="back-link">← Back to Work</a>
+
+    <div class="project-header">
+      <div class="client">Personal Project</div>
+      <h1>DEI Poster</h1>
+      <div class="tags">
+        <a href="website Amanda ross plain.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="website Amanda ross plain.html#illustration" class="tag" style="text-decoration: none;">illustration</a>
+        <a href="website Amanda ross plain.html#print" class="tag" style="text-decoration: none;">print</a>
+      </div>
+    </div>
+
+    <div class="project-image-full">
+      <img src="../website images for indesign/graphic design thumbnail images/MC-Poster-thumb.png" alt="DEI Poster">
+    </div>
+
+    <div class="project-description">
+      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
+    </div>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Personal Project</p>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; Amanda Ross 2024
+    </footer>
+  </div>
+</body>
+</html>

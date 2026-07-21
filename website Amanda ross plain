@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Portfolio Layout</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    body {
+
+      font-family: Georgia, serif;
+
+      background: #2f2f2f;
+
+      color: black;
+
+      display: flex;
+
+      justify-content: center;
+
+      padding: 40px;
+
+    }
+
+    .page {
+
+      width: 1100px;
+
+      background: #f5f5f5;
+
+      padding: 32px;
+
+      border: 2px solid black;
+
+    }
+
+    /* NAV */
+
+    nav {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 40px;
+
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .nav-links {
+
+      display: flex;
+
+      gap: 32px;
+
+      font-size: 18px;
+
+    }
+
+    .nav-links a {
+
+      text-decoration: none;
+
+      color: black;
+
+    }
+
+    /* HERO */
+
+    .divider {
+
+      border-top: 1px solid #999;
+
+      margin-bottom: 50px;
+
+    }
+
+    .hero h1 {
+
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+      line-height: 1;
+
+      max-width: 1000px;
+
+      font-weight: 700;
+
+      margin-bottom: 32px;
+
+    }
+
+    .hero p {
+
+      max-width: 850px;
+
+      font-size: 1rem;
+
+      line-height: 1.6;
+
+      margin-bottom: 80px;
+
+    }
+
+    /* PROJECT GRID */
+
+    .projects {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 48px 32px;
+
+    }
+
+    .project-card {
+
+      width: 100%;
+
+    }
+
+    .project-image {
+
+      width: 100%;
+
+      aspect-ratio: 4 / 3;
+
+      background: #cfcfcf;
+
+      border: 2px solid #3b82f6;
+
+      position: relative;
+
+      overflow: hidden;
+
+      margin-bottom: 14px;
+
+    }
+
+    .project-image::before,
+
+    .project-image::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 140%;
+
+      height: 2px;
+
+      background: #3b82f6;
+
+      top: 50%;
+
+      left: -20%;
+
+    }
+
+    .project-image::before {
+
+      transform: rotate(25deg);
+
+    }
+
+    .project-image::after {
+
+      transform: rotate(-25deg);
+
+    }
+
+    .project-client {
+
+      font-size: 0.85rem;
+
+      margin-bottom: 6px;
+
+    }
+
+    .project-title {
+
+      font-size: 2rem;
+
+      font-weight: bold;
+
+      margin-bottom: 8px;
+
+    }
+
+    .project-meta {
+
+      font-size: 0.9rem;
+
+      color: #333;
+
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .projects {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      nav {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+      }
+
+      .hero h1 {
+
+        font-size: 3rem;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="page">
+
+    <nav>
+
+      <div class="logo">Amanda Ross</div>
+
+      <div class="nav-links">
+
+        <a href="#">Work</a>
+
+        <a href="#">About</a>
+
+      </div>
+
+    </nav>
+
+    <div class="divider"></div>
+
+    <section class="hero">
+
+      <h1>
+
+        Volupta voluptas pisci neserunt que dit quunt remolor ectatusci quam et quatiis eos dolorehent adio to volorunt quia quo ipsanda musaese quibus.
+
+      </h1>
+
+      <p>
+
+        Xere vo roribu? Gia piciatem eos et am, tem faccus sitaturem voloreniham fuga.
+
+        Sed que restis aut aliguidem, ipi aute et tus nobis maio cus, sun est,
+
+        ut quiat accus, nonseque evel mod untis non porem cum fuga.
+
+      </p>
+
+    </section>
+
+    <section class="projects">
+
+      <div class="project-card">
+
+        <div class="project-image"></div>
+
+        <div class="project-client">Who is your client?</div>
+
+        <div class="project-title">Title of Project</div>
+
+        <div class="project-meta">
+
+          Category, type, or project
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-image"></div>
+
+        <div class="project-client">Who is your client?</div>
+
+        <div class="project-title">Title of Project</div>
+
+        <div class="project-meta">
+
+          Category, type, or project
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-image"></div>
+
+        <div class="project-client">Who is your client?</div>
+
+        <div class="project-title">Title of Project</div>
+
+        <div class="project-meta">
+
+          Category, type, or project
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-image"></div>
+
+        <div class="project-client">Who is your client?</div>
+
+        <div class="project-title">Title of Project</div>
+
+        <div class="project-meta">
+
+          Category, type, or project
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+
+</html>
