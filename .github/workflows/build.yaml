@@ -60,6 +60,7 @@ jobs:
 
     - name: Update image tags in deployment YAMLs
       run: |
+        git remote set-url origin git@github.com:2143-Labs/argo.git
         sed -i "s|\(ghcr\.io/amandistry/aross\.studio:\)[0-9]*|\1${{ env.NEW_TAG }}|g" workloads/friends/aross/deployment.yaml
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
