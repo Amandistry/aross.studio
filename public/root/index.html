@@ -5,7 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Portfolio Layout</title>
+  <title>Amanda Ross — Graphic Designer</title>
+
+  <meta name="description" content="Portfolio of Amanda Ross, a graphic designer in the Washington, DC area working in print, branding, publication design, and social media graphics." />
+  <link rel="canonical" href="https://aross.studio/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Amanda Ross" />
+  <meta property="og:title" content="Amanda Ross — Graphic Designer" />
+  <meta property="og:description" content="Print, branding, publication design, and social media graphics. Washington, DC area." />
+  <meta property="og:url" content="https://aross.studio/" />
+  <meta property="og:image" content="https://aross.studio/images/toa.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,11 +34,12 @@
       color: black;
       display: flex;
       justify-content: center;
-      padding: 40px;
+      padding: 40px 24px;
     }
 
     .page {
-      width: 1100px;
+      width: 100%;
+      max-width: 1100px;
       background: #f5f5f5;
       padding: 32px;
       border: 2px solid black;
@@ -170,6 +182,50 @@
       color: #333;
     }
 
+    /* ABOUT */
+
+    .about {
+      margin-top: 90px;
+      padding-top: 40px;
+      border-top: 1px solid #999;
+      max-width: 760px;
+    }
+
+    .about h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: #666;
+      font-weight: normal;
+    }
+
+    .about p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .about a {
+      color: #3b82f6;
+    }
+
+    .about .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin-top: 24px;
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
     /* MixItUp animation */
 
     .mix {
@@ -179,18 +235,37 @@
     /* RESPONSIVE */
 
     @media (max-width: 800px) {
+      body {
+        padding: 16px;
+      }
+
+      .page {
+        padding: 20px;
+        border-width: 1px;
+      }
+
       .projects {
         grid-template-columns: 1fr;
+        gap: 36px;
       }
 
       nav {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        gap: 16px;
       }
 
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2.4rem;
+      }
+
+      .hero p {
+        font-size: 17px;
+        margin-bottom: 48px;
+      }
+
+      .project-title {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -204,8 +279,8 @@
       <div class="logo">Amanda Ross</div>
 
       <div class="nav-links">
-        <a href="#">Work</a>
-        <a href="#">About</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
       </div>
     </nav>
 
@@ -220,6 +295,8 @@
         You can browse my work by tag, like design, photography.
       </p>
     </section>
+
+    <div id="work"></div>
 
     <div class="filter-bar">
       <button class="tag mixitup-control-active" data-filter="all">All</button>
@@ -428,18 +505,52 @@
 
     </section>
 
+    <section class="about" id="about">
+
+      <h2>About</h2>
+
+      <p>
+        I'm a graphic designer working in print, branding, and digital. My background
+        spans screen printing production, association communications, and freelance
+        work for small businesses and non-profits &mdash; which means I'm as comfortable
+        preparing a file for a press as I am building a campaign for social.
+      </p>
+
+      <p>
+        I hold an Associate of Arts in Graphic Design from Montgomery College and a
+        Graphic Design certificate from Shillington in New York, and I work in Adobe
+        Illustrator, InDesign, and Photoshop.
+      </p>
+
+      <div class="contact">
+        <a href="mailto:amanda.m.ross10@gmail.com">amanda.m.ross10@gmail.com</a>
+        <a href="https://linkedin.com/in/amanda2ross/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+    </section>
+
+    <footer>
+      &copy; Amanda Ross <span id="year">2026</span>
+    </footer>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
 
   <script>
 
+    var TAG_FILTERS = ['.design', '.photography', '.digital', '.print', '.branding',
+      '.illustration', '.web-design', '.non-profit', '.merchandise'];
+
+    function filterFromHash() {
+      var h = (window.location.hash || '').replace('#', '');
+      return TAG_FILTERS.indexOf('.' + h) > -1 ? '.' + h : 'all';
+    }
+
     var mixer = mixitup('.container', {
 
       load: {
-        filter: window.location.hash
-          ? '.' + window.location.hash.replace('#', '')
-          : 'all'
+        filter: filterFromHash()
       },
 
       selectors: {
@@ -457,13 +568,11 @@
 
     window.onhashchange = function () {
 
-      var selector = window.location.hash
-        ? '.' + window.location.hash.replace('#', '')
-        : 'all';
-
-      mixer.filter(selector);
+      mixer.filter(filterFromHash());
 
     };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
 
   </script>
 
