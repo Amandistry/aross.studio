@@ -62,6 +62,53 @@
     }
     .back-link:hover { text-decoration: underline; }
 
+
+    /* PROJECT INTRO + IMAGE BLOCKS */
+    .project-intro { max-width: 760px; margin-bottom: 10px; }
+    .project-intro .subtitle { font-size: 18px; margin-bottom: 6px; }
+    .project-intro .disciplines { color: #555; margin-bottom: 26px; }
+    .project-intro h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: normal; color: #555; margin: 26px 0 6px; }
+    .work-image { margin: 10px 0 10px; }
+    .work-image img { width: 100%; height: auto; display: block; }
+    .work-image.centered img { width: 57%; margin: 0 auto; }
+    @media (max-width: 700px) { .work-image.centered img { width: 100%; } }
+
+    /* LIGHTBOX */
+    .lb {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10, 10, 10, 0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 40px 72px;
+    }
+    .lb.open { display: flex; }
+    .lb img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto; object-fit: contain;
+      border: none; box-shadow: 0 0 60px rgba(0,0,0,0.5);
+    }
+    .lb button {
+      position: absolute; background: none; border: none;
+      color: #fff; cursor: pointer; line-height: 1;
+      font-family: Georgia, serif; opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .lb button:hover, .lb button:focus-visible { opacity: 1; }
+    .lb-close { top: 18px; right: 26px; font-size: 40px; }
+    .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 64px; padding: 0 12px; }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+    .lb-count {
+      position: absolute; bottom: 18px; left: 0; right: 0;
+      text-align: center; color: #fff; opacity: 0.6;
+      font-size: 13px; letter-spacing: 0.1em;
+    }
+    body.lb-lock { overflow: hidden; }
+    @media (max-width: 700px) {
+      .lb { padding: 56px 12px; }
+      .lb-prev, .lb-next { font-size: 40px; }
+    }
+
     .project-header { margin-bottom: 40px; }
     .project-header .client {
       font-size: 0.9rem;
@@ -156,22 +203,41 @@
 
     <a href="index.html" class="back-link">← Back to Work</a>
 
-    <div class="project-header">
+    <div class="project-header" style="text-align: center;">
       <div class="client">SkillsUSA</div>
-      <h1>Winning Design – Maryland SkillsUSA T-Shirt Design</h1>
-      <div class="tags">
+      <h1>Winning Design &ndash; Maryland SkillsUSA T-Shirt Design</h1>
+      <div class="tags" style="justify-content: center;">
         <a href="index.html#illustration" class="tag" style="text-decoration: none;">illustration</a>
         <a href="index.html#design" class="tag" style="text-decoration: none;">design</a>
         <a href="index.html#merchandise" class="tag" style="text-decoration: none;">merchandise</a>
       </div>
     </div>
 
-    <div class="project-image-full">
-      <img src="images/Skills usa tshirt .png" alt="Winning Design – Maryland SkillsUSA T-Shirt Design">
+    <div class="project-intro">
+      <p class="subtitle">Apparel Design | Illustration | Graphic Design</p>
+
+      <p>Created for the Maryland SkillsUSA T-Shirt Design Competition, this project
+        showcases a custom-illustrated T-shirt design that celebrates creativity and school
+        spirit. The design was selected as the winning entry, demonstrating strong visual
+        storytelling and apparel design.</p>
+
+      <h4>Software</h4>
+      <p>Adobe Illustrator</p>
     </div>
 
-    <div class="project-description">
-      <p>Winning T-shirt design created for Maryland SkillsUSA.</p>
+    <div class="work-image">
+      <img src="images/skillsusa/skillsusa-tshirt-design.jpg"
+        alt="Champions at Work t-shirt illustration: a sailboat labeled MARYLAND on blue waves, carrying a Baltimore oriole, blue crab, fish and terrapin">
+    </div>
+
+    <div class="work-image">
+      <img src="images/skillsusa/skillsusa-tshirt-mockup.jpg"
+        alt="Shirt mockup showing the design flat on an orange tee and worn on the back by a model">
+    </div>
+
+    <div class="work-image centered">
+      <img src="images/skillsusa/skillsusa-event-photo.jpg"
+        alt="The winning shirt worn by the Maryland SkillsUSA delegation at the state event">
     </div>
 
     <div class="project-meta-sidebar">
@@ -189,5 +255,84 @@
       &copy; Amanda Ross 2026
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var imgs = Array.prototype.slice.call(document.querySelectorAll('.work-image img'));
+      if (!imgs.length) return;
+
+      var lb = document.createElement('div');
+      lb.className = 'lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Project image viewer');
+      lb.innerHTML =
+        '<button class="lb-close" type="button" aria-label="Close">\u00d7</button>' +
+        '<button class="lb-prev" type="button" aria-label="Previous image">\u2039</button>' +
+        '<img alt="">' +
+        '<button class="lb-next" type="button" aria-label="Next image">\u203a</button>' +
+        '<div class="lb-count" aria-live="polite"></div>';
+      document.body.appendChild(lb);
+
+      var big = lb.querySelector('img');
+      var count = lb.querySelector('.lb-count');
+      var index = 0;
+      var opener = null;
+
+      function show(i) {
+        index = (i + imgs.length) % imgs.length;
+        big.src = imgs[index].currentSrc || imgs[index].src;
+        big.alt = imgs[index].alt || '';
+        count.textContent = (index + 1) + ' / ' + imgs.length;
+      }
+
+      function open(i, el) {
+        opener = el || null;
+        show(i);
+        lb.classList.add('open');
+        document.body.classList.add('lb-lock');
+        lb.querySelector('.lb-close').focus();
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.classList.remove('lb-lock');
+        big.removeAttribute('src');
+        if (opener) opener.focus();
+      }
+
+      imgs.forEach(function (img, i) {
+        img.style.cursor = 'zoom-in';
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'View larger: ' + (img.alt || 'image'));
+        img.addEventListener('click', function () { open(i, img); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i, img); }
+        });
+      });
+
+      lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+      lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') show(index + 1);
+        else if (e.key === 'ArrowLeft') show(index - 1);
+      });
+
+      var x0 = null;
+      lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+        x0 = null;
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
