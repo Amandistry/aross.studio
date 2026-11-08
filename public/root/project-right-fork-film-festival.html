@@ -62,6 +62,35 @@
     }
     .back-link:hover { text-decoration: underline; }
 
+
+    .project-intro { max-width: 760px; margin-bottom: 10px; }
+    .project-intro .subtitle { font-size: 18px; margin-bottom: 6px; }
+    .project-intro .disciplines { color: #555; margin-bottom: 26px; }
+    .project-intro h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: normal; color: #555; margin: 26px 0 6px; }
+    .work-image { margin: 0 0 20px; }
+    .work-image img { width: 100%; height: auto; display: block; }
+
+    .lb { position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10,10,10,0.94); display: none;
+      align-items: center; justify-content: center; padding: 40px 72px; }
+    .lb.open { display: flex; }
+    .lb img { max-width: 100%; max-height: 100%; width: auto; height: auto;
+      object-fit: contain; border: none; box-shadow: 0 0 60px rgba(0,0,0,0.5); }
+    .lb button { position: absolute; background: none; border: none; color: #fff;
+      cursor: pointer; line-height: 1; font-family: Georgia, serif; opacity: 0.7;
+      transition: opacity 0.15s; }
+    .lb button:hover, .lb button:focus-visible { opacity: 1; }
+    .lb-close { top: 18px; right: 26px; font-size: 40px; }
+    .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 64px; padding: 0 12px; }
+    .lb-prev { left: 8px; } .lb-next { right: 8px; }
+    .lb-count { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center;
+      color: #fff; opacity: 0.6; font-size: 13px; letter-spacing: 0.1em; }
+    body.lb-lock { overflow: hidden; }
+    @media (max-width: 700px) {
+      .lb { padding: 56px 12px; } .lb-prev, .lb-next { font-size: 40px; }
+    }
+
     .project-header { margin-bottom: 40px; }
     .project-header .client {
       font-size: 0.9rem;
@@ -168,10 +197,10 @@
 
     <a href="index.html" class="back-link">← Back to Work</a>
 
-    <div class="project-header">
+    <div class="project-header" style="text-align: center;">
       <div class="client">TRF</div>
       <h1>The Right Fork Film Festival</h1>
-      <div class="tags">
+      <div class="tags" style="justify-content: center;">
         <a href="index.html#design" class="tag" style="text-decoration: none;">design</a>
         <a href="index.html#branding" class="tag" style="text-decoration: none;">branding</a>
         <a href="index.html#illustration" class="tag" style="text-decoration: none;">illustration</a>
@@ -180,26 +209,56 @@
       </div>
     </div>
 
-    <div class="project-image-full">
-      <img src="images/the right fork images/shirt.jpg" alt="The Right Fork Film Festival">
+    <div class="project-intro">
+      <p class="subtitle">Brand Identity Design | Event Branding | Print &amp; Merchandise Design</p>
+
+      <p>The Right Fork Film Festival is a conceptual visual identity created for an
+        independent film festival focused on celebrating original storytelling. Inspired by
+        vintage cinema and handcrafted illustration, the brand features custom iconography,
+        expressive typography, and a nostalgic color palette. The identity was applied across
+        print, merchandise, and event materials to create a cohesive and engaging festival
+        experience.</p>
+
+      <h4>Software</h4>
+      <p>Adobe Illustrator &bull; Adobe InDesign &bull; Adobe Photoshop</p>
     </div>
 
-    <div class="project-description">
-      <p>Brand identity and illustrated print design created for The Right Fork Film Festival.</p>
+    <div class="work-image">
+      <img src="images/right-fork/rf-01.jpg" alt="Film festival poster with cream background, retro line icons and the Right Fork wordmark">
     </div>
 
-    <div class="project-gallery">
-      <img src="images/the right fork images/Brochure.jpg" alt="The Right Fork Film Festival brochure">
-      <img src="images/the right fork images/buttons.jpg" alt="The Right Fork Film Festival buttons">
-      <img src="images/the right fork images/boottle.png" alt="The Right Fork Film Festival bottle">
-      <img src="images/the right fork images/bag.jpg" alt="The Right Fork Film Festival bag">
-      <img src="images/the right fork images/Poster.jpg" alt="The Right Fork Film Festival poster">
-      <img src="images/the right fork images/press badges.png" alt="The Right Fork Film Festival press badges">
-      <img src="images/the right fork images/poster wall.png" alt="The Right Fork Film Festival poster wall">
-      <img src="images/the right fork images/more.jpg" alt="The Right Fork Film Festival materials">
+    <div class="work-image">
+      <img src="images/right-fork/rf-02.jpg" alt="Folded burgundy festival program with vertical cream title and icon panels">
     </div>
 
-    <div class="project-meta-sidebar">
+    <div class="work-image">
+      <img src="images/right-fork/rf-04.jpg" alt="The festival poster framed and leaning against a wall">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-05.jpg" alt="Cream canvas tote bag printed with the festival icons and title">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-06.jpg" alt="T-shirt with a cream body, tan sleeves and a teal face graphic">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-07.jpg" alt="Press and staff lanyards with yellow festival badges">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-03.jpg" alt="Pin buttons and square coasters carrying the festival icons">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-09.jpg" alt="Square packaging and cards with film titles and the icon set">
+    </div>
+
+    <div class="work-image">
+      <img src="images/right-fork/rf-08.jpg" alt="Bottle with a cream festival label on a dark brown backdrop">
+    </div>
+<div class="project-meta-sidebar">
       <div class="meta-block">
         <h4>Role</h4>
         <p>Designer and Illustrator</p>
@@ -214,5 +273,83 @@
       &copy; Amanda Ross 2026
     </footer>
   </div>
+  <script>
+    (function () {
+      var imgs = Array.prototype.slice.call(document.querySelectorAll('.work-image img'));
+      if (!imgs.length) return;
+
+      var lb = document.createElement('div');
+      lb.className = 'lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Project image viewer');
+      lb.innerHTML =
+        '<button class="lb-close" type="button" aria-label="Close">\u00d7</button>' +
+        '<button class="lb-prev" type="button" aria-label="Previous image">\u2039</button>' +
+        '<img alt="">' +
+        '<button class="lb-next" type="button" aria-label="Next image">\u203a</button>' +
+        '<div class="lb-count" aria-live="polite"></div>';
+      document.body.appendChild(lb);
+
+      var big = lb.querySelector('img');
+      var count = lb.querySelector('.lb-count');
+      var index = 0;
+      var opener = null;
+
+      function show(i) {
+        index = (i + imgs.length) % imgs.length;
+        big.src = imgs[index].currentSrc || imgs[index].src;
+        big.alt = imgs[index].alt || '';
+        count.textContent = (index + 1) + ' / ' + imgs.length;
+      }
+
+      function open(i, el) {
+        opener = el || null;
+        show(i);
+        lb.classList.add('open');
+        document.body.classList.add('lb-lock');
+        lb.querySelector('.lb-close').focus();
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.classList.remove('lb-lock');
+        big.removeAttribute('src');
+        if (opener) opener.focus();
+      }
+
+      imgs.forEach(function (img, i) {
+        img.style.cursor = 'zoom-in';
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'View larger: ' + (img.alt || 'image'));
+        img.addEventListener('click', function () { open(i, img); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i, img); }
+        });
+      });
+
+      lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+      lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') show(index + 1);
+        else if (e.key === 'ArrowLeft') show(index - 1);
+      });
+
+      var x0 = null;
+      lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+        x0 = null;
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
