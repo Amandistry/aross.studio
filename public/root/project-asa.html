@@ -95,11 +95,41 @@
       display: block;
     }
 
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .project-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid black;
+    }
+
     .project-description {
       max-width: 700px;
       margin-bottom: 60px;
       font-size: 18px;
       line-height: 1.7;
+    }
+
+
+    .project-intro { max-width: 760px; margin-bottom: 10px; }
+    .project-intro .subtitle { font-size: 18px; margin-bottom: 6px; }
+    .project-intro .disciplines { color: #555; margin-bottom: 26px; }
+    .project-intro h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: normal; color: #555; margin: 26px 0 6px; }
+    .campaign { margin-top: 70px; }
+    .campaign h2 { text-align: center; font-weight: normal; font-size: 16px;
+      letter-spacing: 0.06em; color: #666; margin-bottom: 26px; }
+    .row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+    .row img { flex-basis: 0; min-width: 0; width: 100%; height: auto; display: block; }
+    .row img.solo { flex-basis: 100%; }
+    @media (max-width: 700px) {
+      .row { flex-wrap: wrap; }
+      .row img { flex-basis: 100% !important; }
     }
 
     .project-meta-sidebar {
@@ -156,23 +186,69 @@
 
     <a href="index.html" class="back-link">← Back to Work</a>
 
-    <div class="project-header">
+    <div class="project-header" style="text-align: center;">
       <div class="client">American Sociological Association (ASA)</div>
       <h1>ASA Membership Campaigns</h1>
-      <div class="tags">
+      <div class="tags" style="justify-content: center;">
         <a href="index.html#design" class="tag" style="text-decoration: none;">design</a>
         <a href="index.html#digital" class="tag" style="text-decoration: none;">digital</a>
         <a href="index.html#non-profit" class="tag" style="text-decoration: none;">non-profit</a>
       </div>
     </div>
 
-    <div class="project-image-full">
-      <img src="graphic design thumbnail images/ASA-summer-25-thumb.png" alt="ASA Membership Campaigns">
+    <div class="project-intro">
+      <p class="subtitle">ASA Membership Campaigns (2024&ndash;2026)</p>
+      <p class="disciplines">Social Media Campaign Design | Marketing Design | Digital Graphics</p>
+
+      <p>Designed a series of digital marketing campaigns for the American Sociological
+        Association (ASA) across multiple membership cycles. Created engaging social media
+        graphics and promotional materials that highlighted membership benefits,
+        organizational initiatives, and events while maintaining the association&rsquo;s
+        established brand identity. Each campaign emphasized clear visual hierarchy,
+        accessible typography, and cohesive layouts to deliver professional, informative
+        content across digital platforms.</p>
+
+      <h4>Software</h4>
+      <p>Adobe Illustrator &bull; Adobe Photoshop &bull; Adobe InDesign</p>
     </div>
 
-    <div class="project-description">
-      <p>Project description goes here. Add details about the work, the process, and the outcome.</p>
-    </div>
+    <section class="campaign">
+      <h2>Summer 2026</h2>
+      <div class="row">
+        <img style="flex-grow:2.025" src="images/asa-campaigns/asa-summer-of-sociology-website.jpg" alt="ASA Summer of Sociology landing page with the campaign banner in place">
+        <img style="flex-grow:1.354" src="images/asa-campaigns/asa-summer-of-sociology-instagram.jpg" alt="Instagram post mockup for the Summer of Sociology drive">
+        <img style="flex-grow:0.79" src="images/asa-campaigns/asa-summer-of-sociology-facebook.jpg" alt="Facebook feed post for the Summer of Sociology drive">
+        <img style="flex-grow:1.914" src="images/asa-campaigns/asa-summer-of-sociology-banner.jpg" alt="Summer of Sociology banner, May 27 to June 10, 2026">
+</div>
+    </section>
+
+    <section class="campaign">
+      <h2>Winter 2026</h2>
+      <div class="row">
+        <img style="flex-grow:3.333" src="images/asa-campaigns/asa-winter-2026-banner.jpg" alt="Winter 2026 membership drive banner, February 3 to 12">
+        <img style="flex-grow:1.353" src="images/asa-campaigns/asa-winter-2026-instagram.jpg" alt="Instagram post mockup for the Winter 2026 drive">
+        <img style="flex-grow:1.9" src="images/asa-campaigns/asa-winter-2026-website.jpg" alt="ASA Winter 2026 membership drive landing page">
+</div>
+    </section>
+
+    <section class="campaign">
+      <h2>Summer 2025</h2>
+      <div class="row">
+        <img style="flex-grow:1.914" src="images/asa-campaigns/asa-summer-2025-banner-with-link.jpg" alt="Summer 2025 banner with a clickable bit.ly shortcut">
+        <img style="flex-grow:1.914" src="images/asa-campaigns/asa-summer-2025-last-day.jpg" alt="Last Day variant of the Summer 2025 banner">
+</div>
+<div class="row">
+        <img class="solo" src="images/asa-campaigns/asa-summer-2025-banner.jpg" alt="Summer 2025 membership drive banner, August 19 to 28">
+</div>
+    </section>
+
+    <section class="campaign">
+      <h2>Spring 2025</h2>
+      <div class="row">
+        <img style="flex-grow:3.333" src="images/asa-campaigns/asa-spring-2025-banner.jpg" alt="Spring 2025 membership drive banner, May 6 to 15">
+        <img style="flex-grow:1.298" src="images/asa-campaigns/asa-spring-2025-email.jpg" alt="Spring 2025 membership drive renewal email">
+</div>
+    </section>
 
     <div class="project-meta-sidebar">
       <div class="meta-block">
@@ -181,7 +257,7 @@
       </div>
       <div class="meta-block">
         <h4>Client</h4>
-        <p>Personal Project</p>
+        <p>American Sociological Association (ASA)</p>
       </div>
     </div>
 
