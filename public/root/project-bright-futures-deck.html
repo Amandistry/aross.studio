@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bright Futures Foundation Deck — Amanda Ross</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://aross.studio/project-bright-futures-deck.html" />
+  <meta name="description" content="A ten-slide donor and partner introduction deck designed for Bright Futures Foundation, a Gaithersburg, Maryland nonprofit supporting students through tutoring, mentorship, and scholarships." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Amanda Ross" />
+  <meta property="og:title" content="Bright Futures Foundation Deck — Amanda Ross" />
+  <meta property="og:description" content="Ten-slide donor and partner introduction deck for Bright Futures Foundation: mission, programs, impact data, and partnership tiers." />
+  <meta property="og:url" content="https://aross.studio/project-bright-futures-deck.html" />
+  <meta property="og:image" content="https://aross.studio/images/bright-futures/bf-card-thumb.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* LIGHTBOX */
+    .lb {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10, 10, 10, 0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 40px 72px;
+    }
+    .lb.open { display: flex; }
+    .lb img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto; object-fit: contain;
+      border: none; box-shadow: 0 0 60px rgba(0,0,0,0.5);
+    }
+    .lb button {
+      position: absolute; background: none; border: none;
+      color: #fff; cursor: pointer; line-height: 1;
+      font-family: Georgia, serif; opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .lb button:hover, .lb button:focus-visible { opacity: 1; }
+    .lb-close { top: 18px; right: 26px; font-size: 40px; }
+    .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 64px; padding: 0 12px; }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+    .lb-count {
+      position: absolute; bottom: 18px; left: 0; right: 0;
+      text-align: center; color: #fff; opacity: 0.6;
+      font-size: 13px; letter-spacing: 0.1em;
+    }
+    body.lb-lock { overflow: hidden; }
+    @media (max-width: 700px) {
+      .lb { padding: 56px 12px; }
+      .lb-prev, .lb-next { font-size: 40px; }
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .project-header { margin-bottom: 40px; }
+    .project-header .client {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #999;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .project-intro { max-width: 760px; margin-bottom: 40px; }
+    .project-intro .subtitle { font-size: 18px; margin-bottom: 6px; }
+    .project-intro .disciplines { color: #555; margin-bottom: 26px; }
+    .project-intro h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: normal; color: #555; margin: 26px 0 6px; }
+
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    .project-gallery figure { margin: 0; }
+    .project-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid black;
+      background: #0b2a3d;
+    }
+    .project-gallery figcaption {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .project-meta-sidebar {
+      display: flex;
+      gap: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .meta-block h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #666;
+    }
+    .meta-block p {
+      color: #222;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      body { padding: 16px; }
+      .page { padding: 20px; border-width: 1px; }
+      nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .project-meta-sidebar { flex-direction: column; gap: 30px; }
+    }
+    .tag:hover {
+      background: #0ff;
+      color: #000;
+      border-color: #0ff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="index.html"><div class="logo">Amanda Ross</div></a>
+      <div class="nav-links">
+        <a href="index.html">Work</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </nav>
+    <div class="divider"></div>
+
+    <a href="index.html" class="back-link">&larr; Back to Work</a>
+
+    <div class="project-header" style="text-align: center;">
+      <div class="client">Bright Futures Foundation</div>
+      <h1>Bright Futures Foundation Deck</h1>
+      <div class="tags" style="justify-content: center;">
+        <a href="index.html#design" class="tag" style="text-decoration: none;">design</a>
+        <a href="index.html#digital" class="tag" style="text-decoration: none;">digital</a>
+        <a href="index.html#non-profit" class="tag" style="text-decoration: none;">non-profit</a>
+      </div>
+    </div>
+
+    <div class="project-intro">
+      <p class="subtitle">Donor &amp; Partner Introduction &middot; 2026</p>
+      <p class="disciplines">Presentation Design | Nonprofit Communications | Information Design</p>
+
+      <p>A ten-slide introduction deck for Bright Futures Foundation, a nonprofit in
+        Gaithersburg, Maryland that supports students in underserved communities through
+        tutoring, mentorship, technology access, and scholarships. The deck has to make one
+        argument in ten slides &mdash; from the opportunity gap through the programs, the
+        impact numbers, and a single student&rsquo;s story to a specific ask &mdash; so every
+        section repeats the same structure: a short claim in large type, then the evidence
+        under it.</p>
+
+      <p>Key figures are set as KPI cards rather than buried in paragraphs, growth is shown
+        as a single ascending bar chart, and the foundation&rsquo;s navy, teal, and gold
+        identity carries through all ten slides with consistent slide numbering and a
+        running footer.</p>
+
+      <h4>Software</h4>
+      <p>Canva</p>
+    </div>
+
+    <section class="project-gallery">
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-01.jpg" width="2000" height="1125"
+          alt="Deck cover: Bright Futures Foundation in large white type on a navy-to-teal gradient, with the gold tagline Empowering Every Child. Inspiring Every Future. and the foundation's gold laurel seal at right."
+          loading="lazy" decoding="async">
+        <figcaption>01 &mdash; Cover</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-02.jpg" width="2000" height="1125"
+          alt="About slide: Education is the shortest path out of a hard start, with two columns describing the foundation's tutoring, mentorship, and scholarship work and a note that it was founded in 2024 by educators, counselors, and parents."
+          loading="lazy" decoding="async">
+        <figcaption>02 &mdash; About us</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-03.jpg" width="2000" height="1125"
+          alt="What drives us slide pairing the mission and vision statements with a row of six core values: education, equity, community, opportunity, innovation, and empowerment."
+          loading="lazy" decoding="async">
+        <figcaption>03 &mdash; Mission &amp; vision</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-04.jpg" width="2000" height="1125"
+          alt="The opportunity gap opens early, and it compounds every year, above three statistics: 1 in 4 students read below grade level, 61% lack reliable home internet, and students with one consistent mentor are 3x more likely to enroll in college."
+          loading="lazy" decoding="async">
+        <figcaption>04 &mdash; The challenge</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-05.jpg" width="2000" height="1125"
+          alt="Six programs, one continuous ladder: after-school tutoring, one-on-one mentorship, STEM workshops, college and career readiness, technology access, and an annual scholarship fund, each in its own card."
+          loading="lazy" decoding="async">
+        <figcaption>05 &mdash; Our programs</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-06.jpg" width="2000" height="1125"
+          alt="Impact slide, Momentum you can measure: KPI cards for 4,200 students served, 240 active mentors, 8 partner districts, and $310K in scholarships; a bar chart of students served each year rising to 4,200; and a navy panel of outcomes including 88% graduating high school on time and 3.4x growth in advanced STEM enrollment."
+          loading="lazy" decoding="async">
+        <figcaption>06 &mdash; Our impact</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-07.jpg" width="2000" height="1125"
+          alt="Success story: From the tutoring room to a STEM scholarship, with a quote from Maya R., class of 2025 and scholarship recipient, and a 2022 to 2025 timeline from tutoring to a $12,000 renewable scholarship."
+          loading="lazy" decoding="async">
+        <figcaption>07 &mdash; Success story</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-08.jpg" width="2000" height="1125"
+          alt="Looking ahead to 2028: four numbered targets of 10,000 students reached each year, 25 partner school districts, a $1M endowed scholarship fund, and 1,000 trained volunteer mentors."
+          loading="lazy" decoding="async">
+        <figcaption>08 &mdash; Looking ahead</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-09.jpg" width="2000" height="1125"
+          alt="Ways to support: three columns for give, sponsor, and engage, with individual donor levels from $50 to $2,000, corporate tiers from $5,000 to $50,000, and volunteer options."
+          loading="lazy" decoding="async">
+        <figcaption>09 &mdash; Ways to support</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bright-futures/bf-slide-10.jpg" width="2000" height="1125"
+          alt="Closing slide: Thank you, with the line Every child deserves a future they can picture clearly, and the foundation's partnership email, phone number, website, and Gaithersburg, Maryland address."
+          loading="lazy" decoding="async">
+        <figcaption>10 &mdash; Closing</figcaption>
+      </figure>
+
+    </section>
+
+    <div class="project-meta-sidebar">
+      <div class="meta-block">
+        <h4>Role</h4>
+        <p>Designer</p>
+      </div>
+      <div class="meta-block">
+        <h4>Client</h4>
+        <p>Bright Futures Foundation</p>
+      </div>
+      <div class="meta-block">
+        <h4>Format</h4>
+        <p>10-slide presentation, 16:9</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; Amanda Ross 2026
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var imgs = Array.prototype.slice.call(document.querySelectorAll('.project-gallery img'));
+      if (!imgs.length) return;
+
+      var lb = document.createElement('div');
+      lb.className = 'lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Project image viewer');
+      lb.innerHTML =
+        '<button class="lb-close" type="button" aria-label="Close">\u00d7</button>' +
+        '<button class="lb-prev" type="button" aria-label="Previous image">\u2039</button>' +
+        '<img alt="">' +
+        '<button class="lb-next" type="button" aria-label="Next image">\u203a</button>' +
+        '<div class="lb-count" aria-live="polite"></div>';
+      document.body.appendChild(lb);
+
+      var big = lb.querySelector('img');
+      var count = lb.querySelector('.lb-count');
+      var index = 0;
+      var opener = null;
+
+      function show(i) {
+        index = (i + imgs.length) % imgs.length;
+        var src = imgs[index].currentSrc || imgs[index].src;
+        big.src = src;
+        big.alt = imgs[index].alt || '';
+        count.textContent = (index + 1) + ' / ' + imgs.length;
+      }
+
+      function open(i, el) {
+        opener = el || null;
+        show(i);
+        lb.classList.add('open');
+        document.body.classList.add('lb-lock');
+        lb.querySelector('.lb-close').focus();
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.classList.remove('lb-lock');
+        big.removeAttribute('src');
+        if (opener) opener.focus();
+      }
+
+      imgs.forEach(function (img, i) {
+        img.style.cursor = 'zoom-in';
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'View larger: ' + (img.alt || 'image'));
+        img.addEventListener('click', function () { open(i, img); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i, img); }
+        });
+      });
+
+      lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+      lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') show(index + 1);
+        else if (e.key === 'ArrowLeft') show(index - 1);
+      });
+
+      var x0 = null;
+      lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+        x0 = null;
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
