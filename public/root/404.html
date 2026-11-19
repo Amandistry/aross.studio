@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Page not found — Amanda Ross</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="robots" content="noindex" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #2f2f2f;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      background: #f5f5f5;
+      padding: 32px;
+      border: 2px solid black;
+    }
+
+    /* NAV */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .divider {
+      border-top: 1px solid #999;
+      margin-bottom: 50px;
+    }
+
+    /* NOT FOUND */
+
+    .not-found h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      font-weight: 200;
+      margin-bottom: 24px;
+    }
+
+    .not-found p {
+      max-width: 850px;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .not-found a {
+      color: #3b82f6;
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      body {
+        padding: 16px;
+      }
+
+      .page {
+        padding: 20px;
+        border-width: 1px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .not-found h1 {
+        font-size: 1.8rem;
+      }
+
+      .not-found p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <nav>
+      <a class="logo" href="/">Amanda Ross</a>
+
+      <div class="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+      </div>
+    </nav>
+
+    <div class="divider"></div>
+
+    <section class="not-found">
+      <h1>Page not found</h1>
+
+      <p>
+        The page you’re looking for isn’t here.
+      </p>
+
+      <a href="/">Back to the work</a>
+    </section>
+
+    <footer>
+      &copy; Amanda Ross 2026
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
